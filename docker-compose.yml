@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    ports:
+      - 80:80
+    container_name: container_php_composer
+    environment:
+        XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1
+    volumes:
+      - .:/var/www/html
+    links:
+      - bancodedados
+  bancodedados:
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    container_name: container_mariadb
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
