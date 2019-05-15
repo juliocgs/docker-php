@@ -1,4 +1,4 @@
-#Ambiente PHP/MariaBD + Composer com XDEBUG habilitado
+# Ambiente PHP/MariaBD + Composer com XDEBUG habilitado
 
 O diretório .vscode possui o arquivo de  configuração para o VS Code conseguir debuggar. É necessário instalar a extensão [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
