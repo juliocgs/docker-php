@@ -6,6 +6,7 @@ services:
       dockerfile: .docker/Dockerfile
     ports:
       - 80:80
+      - 443:443
     container_name: container_php_composer
     environment:
         XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1

@@ -3,6 +3,7 @@ FROM php:7.2.6-apache
 COPY . /var/www/html
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY .docker/certs /etc/apache2/certs
 
 WORKDIR /var/www/html
 
@@ -13,4 +14,4 @@ RUN apt-get update; \
     && docker-php-ext-enable xdebug \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && chown -R www-data:www-data /var/www/html \
-    && a2enmod rewrite && service apache2 restart
+    && a2enmod rewrite && a2enmod ssl && service apache2 restart
